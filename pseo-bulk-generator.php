@@ -3,7 +3,8 @@
  * Plugin Name: Programmatic SEO – Bulk Page Generator
  * Description: Generate thousands of SEO-optimised pages from CSV, XLSX, Google Sheets, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI — all free.
  * Version:     1.0.0
- * Author:      Your Name
+ * Author:      KAILAS (KNR) NATH R
+ * Author URI:  https://www.linkedin.com/in/iamknr
  * License:     GPL-2.0-or-later
  * Text Domain: pseo
  */
