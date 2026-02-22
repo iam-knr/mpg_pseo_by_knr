@@ -6,7 +6,7 @@
  * Author:      KAILAS (KNR) NATH R
  * Author URI:  https://www.linkedin.com/in/iamknr
  * License:     GPL-2.0-or-later
- * Text Domain: pseo
+ * Text Domain: PSEO_PRO_knr
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
