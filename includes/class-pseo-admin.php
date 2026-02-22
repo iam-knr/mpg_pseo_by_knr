@@ -13,13 +13,13 @@ class PSEO_Admin {
     /* ── Menu ─────────────────────────────────────────────── */
     public function register_menu(): void {
         add_menu_page(
-            __( 'Programmatic SEO', 'pseo' ),
-            __( 'Prog SEO', 'pseo' ),
-            'manage_options',
-            'pseo',
-            [ $this, 'page_projects' ],
-            'dashicons-chart-area',
-            30
+        __( 'PSEO PRO by KNR', 'pseo' ),
+        __( 'PSEO PRO', 'pseo' ),
+        'manage_options',
+        'pseo',
+        [ $this, 'page_projects' ],
+        PSEO_PLUGIN_URL . 'admin/images/icon.png',
+        30
         );
 
         add_submenu_page( 'pseo', __( 'All Projects', 'pseo' ),     __( 'All Projects', 'pseo' ),   'manage_options', 'pseo',              [ $this, 'page_projects' ] );
