@@ -1,7 +1,7 @@
 # PSEO PRO by KNR
 ### Programmatic SEO – Bulk Page Generator for WordPress
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-2.0.1-blue)
 ![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.0%2B-purple)
 ![License](https://img.shields.io/badge/license-GPL--2.0-green)
