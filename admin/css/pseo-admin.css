@@ -69,3 +69,14 @@
 
 /* Source panel visibility */
 .pseo-source-panel { display:none; }
+
+/* ── Fix oversized admin menu icon ─────────────────────────── */
+#adminmenu .toplevel_page_pseo .wp-menu-image img {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    padding: 7px 0 0 0 !important;
+    object-fit: contain;
+}
+
