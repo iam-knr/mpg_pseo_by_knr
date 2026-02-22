@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name: PSEO PRO by KNR
+ * Plugin URI:  https://iam-knr.github.io/pseo_byknr/
  * Description: Generate thousands of SEO-optimised pages from CSV, XLSX, Google Sheets, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI — all free.
  * Version:     2.0.1
  * Author:      KAILAS (KNR) NATH R
