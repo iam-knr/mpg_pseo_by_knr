@@ -1,12 +1,18 @@
 <?php
 /**
  * Plugin Name: PSEO PRO by KNR
- * Description: Generate thousands of SEO-optimised pages from CSV, XLSX, Google Sheets, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI — all free.
- * Version:     2.0.1
- * Author:      KAILAS (KNR) NATH R
- * Author URI:  https://www.linkedin.com/in/iamknr
+ * Plugin URI:  https://linkedin.com/in/iamknr
+ * Description: Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI.
+ * Version:     1.0.0
+ * Author:      Kailas (KNR) Nath R
+ * Author URI:  https://linkedin.com/in/iamknr
  * License:     GPL-2.0-or-later
- * Text Domain: PSEO_PRO_knr
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: pseo-pro-knr
+ * Domain Path: /languages
+ * Requires at least: 5.5
+ * Requires PHP:      7.4
+ * Tested up to:      6.9
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -42,7 +48,6 @@ final class PSEO_Plugin {
     }
 
     public function boot(): void {
-        load_plugin_textdomain( 'pseo', false, dirname( plugin_basename( PSEO_PLUGIN_FILE ) ) . '/languages/' );
         new PSEO_Admin();
         new PSEO_Ajax();
         new PSEO_SeoMeta();

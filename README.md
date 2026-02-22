@@ -1,3 +1,21 @@
+=== PSEO PRO by KNR ===
+Contributors: iamknr
+Tags: seo, programmatic seo, bulk pages, csv, google sheets
+Requires at least: 5.5
+Tested up to: 6.9
+Stable tag: 2.0.1
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI.
+
+== Description ==
+
+**PSEO PRO by KNR** is a WordPress plugin built for marketers, agencies, and SEO professionals who need to generate large volumes of location-based, service-based, or data-driven pages at scale — without touching code.
+
+---
+
 # PSEO PRO by KNR
 ### Programmatic SEO – Bulk Page Generator for WordPress
 
@@ -7,7 +25,7 @@
 ![License](https://img.shields.io/badge/license-GPL--2.0-green)
 ![Author](https://img.shields.io/badge/author-Kailas%20(KNR)%20Nath%20R-orange)
 
-> Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST API.  
+> Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST API.
 > Unlimited rows · Built-in Schema · Meta Tags · XML Sitemap · Auto-Sync · WP-CLI — **100% Free.**
 
 ---
@@ -45,7 +63,7 @@
 
 Programmatic SEO is the practice of creating hundreds or thousands of SEO-optimised pages from a structured dataset, where each page targets a specific keyword combination (e.g. "Plumbing in Bangalore", "Plumbing in Mumbai", "Electrician in Bangalore").
 
-**Traditional approach:** Create each page manually → 500 rows = 500 hours of work  
+**Traditional approach:** Create each page manually → 500 rows = 500 hours of work
 **With PSEO PRO:** Upload a 500-row CSV → click Generate → done in 30 seconds
 
 ### Real-World Use Cases
@@ -158,14 +176,12 @@ Source Type : CSV via URL
 URL         : https://yourdomain.com/data.csv
               https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0
 ```
-Row 1 must be headers. UTF-8 encoding. Comma-separated.
 
 ### 2. CSV Upload (Server Path)
 ```
 Source Type : CSV Upload (server path)
 Path        : /var/www/html/wp-content/uploads/2026/02/data.csv
 ```
-Use the absolute server path, not the URL.
 
 ### 3. Google Sheets
 ```
@@ -173,15 +189,12 @@ Source Type : Google Sheets
 Sheet ID    : 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms
 GID         : 0
 ```
-Sheet must be shared as **"Anyone with the link → Viewer"**.
-
-Sheet ID is found in the URL between `/d/` and `/edit`.
 
 ### 4. JSON URL
 ```
 Source Type : JSON URL
 URL         : https://api.example.com/data.json
-Data Path   : data.items   (blank if root is the array)
+Data Path   : data.items
 ```
 
 ### 5. REST API (Paginated)
@@ -192,7 +205,7 @@ Data Path    : results
 Page Param   : page
 Per Page     : 100
 Max Pages    : 10
-Auth Header  : Bearer your-token   (optional)
+Auth Header  : Bearer your-token
 ```
 
 ---
@@ -244,9 +257,7 @@ jobs/{{job_title}}/{{city}}           → /jobs/developer/bangalore/
 
 ## Auto-Sync & Cron
 
-WP Cron event `pseo_cron_sync` runs hourly, checks all projects with non-manual intervals, and regenerates pages automatically.
-
-**Fix for servers with WP Cron disabled:**
+WP Cron event `pseo_cron_sync` runs hourly and regenerates pages for all non-manual projects automatically.
 
 In `wp-config.php`:
 ```php
@@ -264,8 +275,6 @@ cPanel crontab (every 15 minutes):
 
 **URL:** `https://yourdomain.com/pseo-sitemap.xml`
 
-Lists all generated page URLs. Submit to Google Search Console under **Sitemaps**.
-
 > If sitemap returns 404 → Settings → Permalinks → Save Changes
 
 ---
@@ -273,13 +282,13 @@ Lists all generated page URLs. Submit to Google Search Console under **Sitemaps*
 ## WP-CLI Commands
 
 ```bash
-wp pseo list                                 # List all projects
-wp pseo list --format=json                   # JSON output
-wp pseo generate --id=1                      # Generate for project #1
-wp pseo generate --id=1 --delete-orphans     # Generate + remove orphans
-wp pseo generate --all                       # Generate all projects
-wp pseo generate --all --delete-orphans      # Generate all + remove orphans
-wp pseo delete-pages --id=1                  # Delete all pages of project #1
+wp pseo list
+wp pseo list --format=json
+wp pseo generate --id=1
+wp pseo generate --id=1 --delete-orphans
+wp pseo generate --all
+wp pseo generate --all --delete-orphans
+wp pseo delete-pages --id=1
 ```
 
 ---
@@ -287,8 +296,6 @@ wp pseo delete-pages --id=1                  # Delete all pages of project #1
 ## Hooks & Filters
 
 ### `pseo_schema`
-Modify schema array before JSON-LD output.
-
 ```php
 add_filter( 'pseo_schema', function( $schema, $type, $row, $post ) {
     if ( $type === 'LocalBusiness' ) {
@@ -359,26 +366,35 @@ pseo-bulk-generator/
 
 ## FAQ
 
-**Q: Does it work with Elementor or Divi?**  
+**Q: Does it work with Elementor or Divi?**
 A: Yes. Set your Elementor/Divi-built page as the Content Template — placeholders inside it will be replaced.
 
-**Q: Will it conflict with Yoast SEO or Rank Math?**  
+**Q: Will it conflict with Yoast SEO or Rank Math?**
 A: No. PSEO PRO's meta tags fire at priority 1. Both can coexist.
 
-**Q: Can I edit generated pages manually?**  
+**Q: Can I edit generated pages manually?**
 A: Yes, but manual edits are overwritten on the next Generate run. Use the CSV and template instead.
 
-**Q: Is there a page limit?**  
+**Q: Is there a page limit?**
 A: No plugin limit. For 10,000+ pages use WP-CLI to avoid PHP timeouts.
 
-**Q: Can I use custom post types?**  
+**Q: Can I use custom post types?**
 A: Yes. Any public post type appears in the "Generate as Post Type" dropdown.
 
 ---
 
-## Changelog
+== Changelog ==
 
-### v1.0.0 — 2026-02-22
+= 2.0.1 — 2026-02-22 =
+- 🔧 Fixed text domain mismatch (pseo → pseo-pro-knr)
+- 🔧 Fixed README missing WordPress.org required headers
+- 🔧 Removed deprecated load_plugin_textdomain() call
+- 🔧 Fixed unescaped output variables in view files
+- 🔧 Added nonce verification to AJAX handlers
+- 🔧 Prefixed global variables in view templates
+- 🔧 Added phpcs:ignore for direct DB queries
+
+= 1.0.0 — 2026-02-22 =
 - 🎉 Initial release
 - ✅ 5 data source types
 - ✅ Template engine (placeholders, spintax, conditionals)
@@ -391,9 +407,16 @@ A: Yes. Any public post type appears in the "Generate as Post Type" dropdown.
 
 ---
 
+== Upgrade Notice ==
+
+= 2.0.1 =
+Fixes text domain, security hardening, and WordPress Plugin Check compliance. Recommended for all users.
+
+---
+
 ## Author
 
-**Kailas (KNR) Nath R**  
+**Kailas (KNR) Nath R**
 Digital Marketing Strategist | WordPress Developer | SEO Expert
 
 - 🌐 LinkedIn: [linkedin.com/in/iamknr](https://linkedin.com/in/iamknr)
@@ -402,8 +425,8 @@ Digital Marketing Strategist | WordPress Developer | SEO Expert
 
 ## License
 
-GPL-2.0-or-later — [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
+GPL-2.0-or-later — https://www.gnu.org/licenses/gpl-2.0.html
 
 ---
 
-*Built with ❤️ by [Kailas (KNR) Nath R](https://linkedin.com/in/iamknr) — PSEO PRO v1.0.0*
+*Built with ❤️ by [Kailas (KNR) Nath R](https://linkedin.com/in/iamknr) — PSEO PRO v2.0.1*

@@ -12,11 +12,11 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
 
     <h1>
         <?php echo $project
-            ? esc_html__( 'Edit Project', 'pseo' ) . ' — <em>' . esc_html( $project->name ) . '</em>'
-            : esc_html__( 'New Project', 'pseo' ); ?>
+            ? esc_html__( 'Edit Project', 'pseo-pro-knr' ) . ' — <em>' . esc_html( $project->name ) . '</em>'
+            : esc_html__( 'New Project', 'pseo-pro-knr' ); ?>
     </h1>
     <a href="<?php echo esc_url( admin_url( 'admin.php?page=pseo' ) ); ?>" class="page-title-action">
-        ← <?php esc_html_e( 'All Projects', 'pseo' ); ?>
+        ← <?php esc_html_e( 'All Projects', 'pseo-pro-knr' ); ?>
     </a>
     <hr class="wp-header-end">
 
@@ -28,11 +28,11 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-admin-settings"></span>
-                <?php esc_html_e( 'Project Details', 'pseo' ); ?>
+                <?php esc_html_e( 'Project Details', 'pseo-pro-knr' ); ?>
             </h2>
             <table class="form-table">
                 <tr>
-                    <th><label for="pseo-name"><?php esc_html_e( 'Project Name', 'pseo' ); ?> *</label></th>
+                    <th><label for="pseo-name"><?php esc_html_e( 'Project Name', 'pseo-pro-knr' ); ?> *</label></th>
                     <td>
                         <input id="pseo-name" type="text" name="name" class="regular-text"
                                value="<?php echo esc_attr( $project->name ?? '' ); ?>"
@@ -40,7 +40,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr>
-                    <th><label><?php esc_html_e( 'Generate as Post Type', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Generate as Post Type', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <select name="post_type">
                             <?php foreach ( $post_types as $pt ) : ?>
@@ -53,10 +53,10 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr>
-                    <th><label><?php esc_html_e( 'Content Template', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Content Template', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <select name="template_id">
-                            <option value="0"><?php esc_html_e( '— None (blank content) —', 'pseo' ); ?></option>
+                            <option value="0"><?php esc_html_e( '— None (blank content) —', 'pseo-pro-knr' ); ?></option>
                             <?php foreach ( $template_posts as $tp ) : ?>
                                 <option value="<?php echo $tp->ID; ?>" <?php selected( $project->template_id ?? 0, $tp->ID ); ?>>
                                     <?php echo esc_html( $tp->post_title ); ?>
@@ -78,11 +78,11 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-database"></span>
-                <?php esc_html_e( 'Data Source', 'pseo' ); ?>
+                <?php esc_html_e( 'Data Source', 'pseo-pro-knr' ); ?>
             </h2>
             <table class="form-table">
                 <tr>
-                    <th><label><?php esc_html_e( 'Source Type', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Source Type', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <select id="pseo-source-type" name="source_type">
                             <?php $st = $project->source_type ?? 'csv_url'; ?>
@@ -97,7 +97,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
 
                 <!-- CSV / CSV Upload -->
                 <tr class="pseo-source-panel pseo-source-csv_url pseo-source-csv_upload">
-                    <th><?php esc_html_e( 'CSV File URL / Server Path', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'CSV File URL / Server Path', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="text" name="source_config[file_url]" class="large-text"
                                value="<?php echo esc_attr( $config['file_url'] ?? '' ); ?>"
@@ -107,7 +107,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
 
                 <!-- Google Sheets -->
                 <tr class="pseo-source-panel pseo-source-google_sheets">
-                    <th><?php esc_html_e( 'Google Sheet ID', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Google Sheet ID', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="text" name="source_config[sheet_id]" class="regular-text"
                                value="<?php echo esc_attr( $config['sheet_id'] ?? '' ); ?>"
@@ -116,7 +116,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr class="pseo-source-panel pseo-source-google_sheets">
-                    <th><?php esc_html_e( 'Worksheet GID', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Worksheet GID', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="text" name="source_config[gid]" class="small-text"
                                value="<?php echo esc_attr( $config['gid'] ?? '0' ); ?>" placeholder="0">
@@ -126,7 +126,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
 
                 <!-- JSON URL -->
                 <tr class="pseo-source-panel pseo-source-json_url">
-                    <th><?php esc_html_e( 'JSON Endpoint URL', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'JSON Endpoint URL', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="url" name="source_config[url]" class="large-text"
                                value="<?php echo esc_attr( $config['url'] ?? '' ); ?>"
@@ -134,7 +134,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr class="pseo-source-panel pseo-source-json_url">
-                    <th><?php esc_html_e( 'Data Path (dot notation)', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Data Path (dot notation)', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="text" name="source_config[path]" class="regular-text"
                                value="<?php echo esc_attr( $config['path'] ?? '' ); ?>" placeholder="data.results">
@@ -144,7 +144,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
 
                 <!-- REST API -->
                 <tr class="pseo-source-panel pseo-source-rest_api">
-                    <th><?php esc_html_e( 'API Base URL', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'API Base URL', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="url" name="source_config[url]" class="large-text"
                                value="<?php echo esc_attr( $config['url'] ?? '' ); ?>"
@@ -152,14 +152,14 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr class="pseo-source-panel pseo-source-rest_api">
-                    <th><?php esc_html_e( 'Data Path in Response', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Data Path in Response', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="text" name="source_config[data_path]" class="regular-text"
                                value="<?php echo esc_attr( $config['data_path'] ?? '' ); ?>" placeholder="results">
                     </td>
                 </tr>
                 <tr class="pseo-source-panel pseo-source-rest_api">
-                    <th><?php esc_html_e( 'Pagination', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Pagination', 'pseo-pro-knr' ); ?></th>
                     <td>
                         Page param: <input type="text" name="source_config[page_param]" class="small-text"
                                value="<?php echo esc_attr( $config['page_param'] ?? 'page' ); ?>">
@@ -170,7 +170,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr class="pseo-source-panel pseo-source-rest_api">
-                    <th><?php esc_html_e( 'Auth Header (optional)', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Auth Header (optional)', 'pseo-pro-knr' ); ?></th>
                     <td>
                         <input type="text" name="source_config[headers][Authorization]" class="large-text"
                                value="<?php echo esc_attr( $config['headers']['Authorization'] ?? '' ); ?>"
@@ -184,11 +184,11 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-admin-links"></span>
-                <?php esc_html_e( 'URL Structure', 'pseo' ); ?>
+                <?php esc_html_e( 'URL Structure', 'pseo-pro-knr' ); ?>
             </h2>
             <table class="form-table">
                 <tr>
-                    <th><label><?php esc_html_e( 'URL Pattern', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'URL Pattern', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <div class="pseo-url-preview-wrap">
                             <span class="pseo-url-base"><?php echo esc_html( trailingslashit( home_url() ) ); ?></span>
@@ -209,11 +209,11 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-search"></span>
-                <?php esc_html_e( 'SEO Meta', 'pseo' ); ?>
+                <?php esc_html_e( 'SEO Meta', 'pseo-pro-knr' ); ?>
             </h2>
             <table class="form-table">
                 <tr>
-                    <th><label><?php esc_html_e( 'Title Tag Template', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Title Tag Template', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <input type="text" name="seo_title" class="large-text"
                                value="<?php echo esc_attr( $project->seo_title ?? '' ); ?>"
@@ -222,7 +222,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr>
-                    <th><label><?php esc_html_e( 'Meta Description Template', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Meta Description Template', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <textarea name="seo_desc" class="large-text" rows="3"
                                   placeholder="Looking for {{service}} in {{city}}? Get free quotes starting from ₹{{price}}."
@@ -231,7 +231,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr>
-                    <th><label><?php esc_html_e( 'Robots Directive', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Robots Directive', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <select name="robots">
                             <?php $r = $project->robots ?? 'index,follow'; ?>
@@ -243,7 +243,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr>
-                    <th><label><?php esc_html_e( 'Schema Markup Type', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Schema Markup Type', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <select id="pseo-schema-type" name="schema_type">
                             <?php $sc = $project->schema_type ?? ''; ?>
@@ -265,11 +265,11 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-update"></span>
-                <?php esc_html_e( 'Auto-Sync Settings', 'pseo' ); ?>
+                <?php esc_html_e( 'Auto-Sync Settings', 'pseo-pro-knr' ); ?>
             </h2>
             <table class="form-table">
                 <tr>
-                    <th><label><?php esc_html_e( 'Sync Interval', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Sync Interval', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <select name="sync_interval">
                             <?php $si = $project->sync_interval ?? 'manual'; ?>
@@ -282,12 +282,12 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                     </td>
                 </tr>
                 <tr>
-                    <th><label><?php esc_html_e( 'Delete Orphaned Pages', 'pseo' ); ?></label></th>
+                    <th><label><?php esc_html_e( 'Delete Orphaned Pages', 'pseo-pro-knr' ); ?></label></th>
                     <td>
                         <label>
                             <input type="checkbox" name="delete_orphans" value="1"
                                    <?php checked( $project->delete_orphans ?? 0, 1 ); ?>>
-                            <?php esc_html_e( 'Auto-delete pages whose data row was removed from the source.', 'pseo' ); ?>
+                            <?php esc_html_e( 'Auto-delete pages whose data row was removed from the source.', 'pseo-pro-knr' ); ?>
                         </label>
                     </td>
                 </tr>
@@ -297,17 +297,17 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
         <!-- Submit Bar -->
         <div class="pseo-submit-bar">
             <button type="submit" class="button button-primary button-large">
-                💾 <?php esc_html_e( 'Save Project', 'pseo' ); ?>
+                💾 <?php esc_html_e( 'Save Project', 'pseo-pro-knr' ); ?>
             </button>
             <?php if ( $project_id ) : ?>
                 <button type="button" class="button button-large pseo-btn-generate" data-id="<?php echo $project_id; ?>">
-                    ⚡ <?php esc_html_e( 'Generate Pages Now', 'pseo' ); ?>
+                    ⚡ <?php esc_html_e( 'Generate Pages Now', 'pseo-pro-knr' ); ?>
                 </button>
                 <button type="button" class="button button-large pseo-btn-preview" data-id="<?php echo $project_id; ?>">
-                    👁 <?php esc_html_e( 'Preview Data', 'pseo' ); ?>
+                    👁 <?php esc_html_e( 'Preview Data', 'pseo-pro-knr' ); ?>
                 </button>
                 <button type="button" class="button button-link-delete pseo-btn-delete-project" data-id="<?php echo $project_id; ?>">
-                    🗑 <?php esc_html_e( 'Delete Project', 'pseo' ); ?>
+                    🗑 <?php esc_html_e( 'Delete Project', 'pseo-pro-knr' ); ?>
                 </button>
             <?php endif; ?>
         </div>
@@ -317,7 +317,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
     <div id="pseo-preview-modal" class="pseo-modal" style="display:none;" role="dialog">
         <div class="pseo-modal-inner">
             <div class="pseo-modal-header">
-                <h2><?php esc_html_e( 'Data Preview (first 5 rows)', 'pseo' ); ?></h2>
+                <h2><?php esc_html_e( 'Data Preview (first 5 rows)', 'pseo-pro-knr' ); ?></h2>
                 <button class="pseo-modal-close">&times;</button>
             </div>
             <div id="pseo-preview-content"></div>
