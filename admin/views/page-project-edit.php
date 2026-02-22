@@ -87,8 +87,6 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                         <select id="pseo-source-type" name="source_type">
                             <?php $st = $project->source_type ?? 'csv_url'; ?>
                             <option value="csv_url"       <?php selected( $st, 'csv_url' ); ?>>       📄 CSV via URL</option>
-                            <option value="csv_upload"    <?php selected( $st, 'csv_upload' ); ?>>    📤 CSV Upload (server path)</option>
-                            <option value="google_sheets" <?php selected( $st, 'google_sheets' ); ?>> 📊 Google Sheets (published)</option>
                             <option value="json_url"      <?php selected( $st, 'json_url' ); ?>>      🔗 JSON URL</option>
                             <option value="rest_api"      <?php selected( $st, 'rest_api' ); ?>>      ⚙️ REST API (paginated)</option>
                         </select>
