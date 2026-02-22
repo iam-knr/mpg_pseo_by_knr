@@ -24,7 +24,7 @@ foreach ( $projects as $p ) {
                     <span class="pseo-stat__label">Projects</span>
                 </div>
                 <div class="pseo-stat">
-                    <span class="pseo-stat__num"><?php echo $total_pages; ?></span>
+                    <span class="pseo-stat__num"><?php echo (int) $total_pages; ?></span>
                     <span class="pseo-stat__label">Pages Generated</span>
                 </div>
                 <div class="pseo-stat">

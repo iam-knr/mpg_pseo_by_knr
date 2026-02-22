@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$project_id   = (int) ( $_GET['id'] ?? 0 );
+$project_id = isset( $_GET['id'] ) ? absint( wp_unslash( $_GET['id'] ) ) : 0;
 $project      = $project_id ? PSEO_Database::get_project( $project_id ) : null;
 $config       = $project ? ( json_decode( $project->source_config, true ) ?: [] ) : [];
 $template_posts = get_posts( [ 'post_type' => [ 'page', 'post' ], 'numberposts' => -1,
@@ -22,7 +22,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
 
     <form id="pseo-project-form" class="pseo-form" novalidate>
         <?php wp_nonce_field( 'pseo_nonce', 'nonce' ); ?>
-        <input type="hidden" name="id" value="<?php echo $project_id; ?>">
+        <input type="hidden" name="id" value="<?php echo (int) $project_id; ?>">
 
         <!-- CARD 1 – Basic Details -->
         <div class="pseo-card">
@@ -58,7 +58,7 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                         <select name="template_id">
                             <option value="0"><?php esc_html_e( '— None (blank content) —', 'pseo-pro-knr' ); ?></option>
                             <?php foreach ( $template_posts as $tp ) : ?>
-                                <option value="<?php echo $tp->ID; ?>" <?php selected( $project->template_id ?? 0, $tp->ID ); ?>>
+                                <option value="<?php echo (int) $tp->ID; ?>" <?php selected( $project->template_id ?? 0, $tp->ID ); ?>>
                                     <?php echo esc_html( $tp->post_title ); ?>
                                 </option>
                             <?php endforeach; ?>
@@ -300,13 +300,13 @@ $post_types   = get_post_types( [ 'public' => true ], 'objects' );
                 💾 <?php esc_html_e( 'Save Project', 'pseo-pro-knr' ); ?>
             </button>
             <?php if ( $project_id ) : ?>
-                <button type="button" class="button button-large pseo-btn-generate" data-id="<?php echo $project_id; ?>">
+                <button type="button" class="button button-large pseo-btn-generate" data-id="<?php echo (int) $project_id; ?>">
                     ⚡ <?php esc_html_e( 'Generate Pages Now', 'pseo-pro-knr' ); ?>
                 </button>
-                <button type="button" class="button button-large pseo-btn-preview" data-id="<?php echo $project_id; ?>">
+                <button type="button" class="button button-large pseo-btn-preview" data-id="<?php echo (int) $project_id; ?>">
                     👁 <?php esc_html_e( 'Preview Data', 'pseo-pro-knr' ); ?>
                 </button>
-                <button type="button" class="button button-link-delete pseo-btn-delete-project" data-id="<?php echo $project_id; ?>">
+                <button type="button" class="button button-link-delete pseo-btn-delete-project" data-id="<?php echo (int) $project_id; ?>">
                     🗑 <?php esc_html_e( 'Delete Project', 'pseo-pro-knr' ); ?>
                 </button>
             <?php endif; ?>
