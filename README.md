@@ -1,6 +1,6 @@
 === PSEO PRO by KNR ===
 Contributors: iamknr
-Tags: seo, programmatic seo, bulk pages, csv, google sheets
+Tags: seo, programmatic seo, bulk pages, csv
 Requires at least: 5.5
 Tested up to: 6.9
 Stable tag: 2.0.1
@@ -8,7 +8,7 @@ Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI.
+Generate thousands of SEO-optimised pages from CSV, JSON or REST API. Unlimited rows, built-in schema, meta, sitemap, cron & WP-CLI.
 
 == Description ==
 
@@ -25,7 +25,7 @@ Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST 
 ![License](https://img.shields.io/badge/license-GPL--2.0-green)
 ![Author](https://img.shields.io/badge/author-Kailas%20(KNR)%20Nath%20R-orange)
 
-> Generate thousands of SEO-optimised pages from CSV, Google Sheets, JSON or REST API.
+> Generate thousands of SEO-optimised pages from CSV, JSON or REST API.
 > Unlimited rows · Built-in Schema · Meta Tags · XML Sitemap · Auto-Sync · WP-CLI — **100% Free.**
 
 ---
@@ -86,7 +86,7 @@ Programmatic SEO is the practice of creating hundreds or thousands of SEO-optimi
 ### Core Features
 - ✅ **Unlimited rows** — no artificial page limits
 - ✅ **Unlimited projects** — run multiple campaigns simultaneously
-- ✅ **5 data sources** — CSV URL, CSV Upload, Google Sheets, JSON, REST API
+- ✅ **5 data sources** — CSV URL, CSV Upload, JSON, REST API
 - ✅ **Smart update engine** — existing pages are updated, not duplicated
 - ✅ **Orphan detection** — auto-delete pages removed from the data source
 - ✅ **Any post type** — Pages, Posts, or any custom post type
@@ -158,7 +158,7 @@ wp rewrite flush
 
 ```
 Step 1 → Prepare CSV with column headers
-Step 2 → Upload CSV or publish Google Sheet
+Step 2 → Upload CSV
 Step 3 → Create a template page with {{placeholders}}
 Step 4 → Prog SEO → + New Project → fill the form
 Step 5 → Click ⚡ Generate Pages Now
@@ -174,7 +174,7 @@ Step 7 → Submit /pseo-sitemap.xml to Google Search Console
 ```
 Source Type : CSV via URL
 URL         : https://yourdomain.com/data.csv
-              https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0
+              
 ```
 
 ### 2. CSV Upload (Server Path)
@@ -183,21 +183,14 @@ Source Type : CSV Upload (server path)
 Path        : /var/www/html/wp-content/uploads/2026/02/data.csv
 ```
 
-### 3. Google Sheets
-```
-Source Type : Google Sheets
-Sheet ID    : 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms
-GID         : 0
-```
-
-### 4. JSON URL
+### 3. JSON URL
 ```
 Source Type : JSON URL
 URL         : https://api.example.com/data.json
 Data Path   : data.items
 ```
 
-### 5. REST API (Paginated)
+### 4. REST API (Paginated)
 ```
 Source Type  : REST API
 API URL      : https://api.example.com/v1/listings
