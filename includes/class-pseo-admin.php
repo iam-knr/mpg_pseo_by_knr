@@ -13,8 +13,8 @@ class PSEO_Admin {
     /* ── Menu ─────────────────────────────────────────────── */
     public function register_menu(): void {
         add_menu_page(
-        __( 'PSEO PRO by KNR', 'pseo-pro-knr' ),
-        __( 'PSEO PRO', 'pseo-pro-knr' ),
+        __( 'PSEO PRO by KNR', 'pseo' ),
+        __( 'PSEO PRO', 'pseo' ),
         'manage_options',
         'pseo',
         [ $this, 'page_projects' ],
@@ -22,26 +22,26 @@ class PSEO_Admin {
         30
         );
 
-        add_submenu_page( 'pseo', __( 'All Projects', 'pseo-pro-knr' ),     __( 'All Projects', 'pseo-pro-knr' ),   'manage_options', 'pseo-pro-knr',              [ $this, 'page_projects' ] );
-        add_submenu_page( 'pseo', __( 'New / Edit Project', 'pseo-pro-knr'),__( '+ New Project', 'pseo-pro-knr' ),  'manage_options', 'pseo-project-edit', [ $this, 'page_project_edit' ] );
-        add_submenu_page( 'pseo', __( 'Settings', 'pseo-pro-knr' ),         __( 'Settings', 'pseo-pro-knr' ),       'manage_options', 'pseo-settings',     [ $this, 'page_settings' ] );
+        add_submenu_page( 'pseo', __( 'All Projects', 'pseo' ),     __( 'All Projects', 'pseo' ),   'manage_options', 'pseo',              [ $this, 'page_projects' ] );
+        add_submenu_page( 'pseo', __( 'New / Edit Project', 'pseo'),__( '+ New Project', 'pseo' ),  'manage_options', 'pseo-project-edit', [ $this, 'page_project_edit' ] );
+        add_submenu_page( 'pseo', __( 'Settings', 'pseo' ),         __( 'Settings', 'pseo' ),       'manage_options', 'pseo-settings',     [ $this, 'page_settings' ] );
     }
 
     /* ── Assets ───────────────────────────────────────────── */
     public function enqueue_assets( string $hook ): void {
-        if ( strpos( $hook, 'pseo-pro-knr' ) === false ) return;
+        if ( strpos( $hook, 'pseo' ) === false ) return;
 
         wp_enqueue_style( 'pseo-admin', PSEO_PLUGIN_URL . 'admin/css/pseo-admin.css', [], PSEO_VERSION );
         wp_enqueue_script( 'pseo-admin', PSEO_PLUGIN_URL . 'admin/js/pseo-admin.js', [ 'jquery' ], PSEO_VERSION, true );
 
-        wp_localize_script( 'pseo-admin', 'pseo-pro-knr', [
+        wp_localize_script( 'pseo-admin', 'PSEO', [
             'ajax_url'       => admin_url( 'admin-ajax.php' ),
             'nonce'          => wp_create_nonce( 'pseo_nonce' ),
-            'confirm_delete' => __( 'Delete this project and ALL its generated pages? This cannot be undone.', 'pseo-pro-knr' ),
-            'confirm_pages'  => __( 'Delete all generated pages for this project?', 'pseo-pro-knr' ),
-            'generating'     => __( 'Generating…', 'pseo-pro-knr' ),
-            'generate'       => __( 'Generate', 'pseo-pro-knr' ),
-            'saved'          => __( 'Project saved!', 'pseo-pro-knr' ),
+            'confirm_delete' => __( 'Delete this project and ALL its generated pages? This cannot be undone.', 'pseo' ),
+            'confirm_pages'  => __( 'Delete all generated pages for this project?', 'pseo' ),
+            'generating'     => __( 'Generating…', 'pseo' ),
+            'generate'       => __( 'Generate', 'pseo' ),
+            'saved'          => __( 'Project saved!', 'pseo' ),
         ] );
     }
 
@@ -62,7 +62,7 @@ class PSEO_Admin {
     public function admin_notices(): void {
         if ( isset( $_GET['pseo_rebuilt'] ) ) {
             echo '<div class="notice notice-success is-dismissible"><p>'
-                . esc_html__( 'Programmatic SEO: database tables rebuilt successfully.', 'pseo-pro-knr' )
+                . esc_html__( 'Programmatic SEO: database tables rebuilt successfully.', 'pseo' )
                 . '</p></div>';
         }
     }

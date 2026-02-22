@@ -7,7 +7,7 @@ foreach ( $projects as $p ) {
 }
 ?>
 <div class="wrap pseo-wrap">
-    <h1><?php esc_html_e( 'Programmatic SEO – Settings & Info', 'pseo-pro-knr' ); ?></h1>
+    <h1><?php esc_html_e( 'Programmatic SEO – Settings & Info', 'pseo' ); ?></h1>
     <hr class="wp-header-end">
 
     <div class="pseo-settings-grid">
@@ -16,7 +16,7 @@ foreach ( $projects as $p ) {
         <div class="pseo-card pseo-stats-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-chart-bar"></span>
-                <?php esc_html_e( 'Overview', 'pseo-pro-knr' ); ?>
+                <?php esc_html_e( 'Overview', 'pseo' ); ?>
             </h2>
             <div class="pseo-stats">
                 <div class="pseo-stat">
@@ -24,7 +24,7 @@ foreach ( $projects as $p ) {
                     <span class="pseo-stat__label">Projects</span>
                 </div>
                 <div class="pseo-stat">
-                    <span class="pseo-stat__num"><?php echo (int) $total_pages; ?></span>
+                    <span class="pseo-stat__num"><?php echo $total_pages; ?></span>
                     <span class="pseo-stat__label">Pages Generated</span>
                 </div>
                 <div class="pseo-stat">
@@ -42,9 +42,9 @@ foreach ( $projects as $p ) {
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-networking"></span>
-                <?php esc_html_e( 'XML Sitemap', 'pseo-pro-knr' ); ?>
+                <?php esc_html_e( 'XML Sitemap', 'pseo' ); ?>
             </h2>
-            <p><?php esc_html_e( 'Your PSEO sitemap contains all generated pages. Submit it to Google Search Console.', 'pseo-pro-knr' ); ?></p>
+            <p><?php esc_html_e( 'Your PSEO sitemap contains all generated pages. Submit it to Google Search Console.', 'pseo' ); ?></p>
             <p>
                 <strong>Sitemap URL:</strong><br>
                 <code id="pseo-sitemap-url"><?php echo esc_url( home_url( '/pseo-sitemap.xml' ) ); ?></code>
@@ -52,7 +52,7 @@ foreach ( $projects as $p ) {
             </p>
             <p>
                 <a href="<?php echo esc_url( home_url( '/pseo-sitemap.xml' ) ); ?>" target="_blank" class="button">
-                    ↗ <?php esc_html_e( 'View Sitemap', 'pseo-pro-knr' ); ?>
+                    ↗ <?php esc_html_e( 'View Sitemap', 'pseo' ); ?>
                 </a>
             </p>
             <p class="description">⚠ If sitemap returns 404 → Settings → Permalinks → Save Changes.</p>
@@ -62,7 +62,7 @@ foreach ( $projects as $p ) {
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-editor-code"></span>
-                <?php esc_html_e( 'WP-CLI Commands', 'pseo-pro-knr' ); ?>
+                <?php esc_html_e( 'WP-CLI Commands', 'pseo' ); ?>
             </h2>
             <table class="widefat striped" style="font-size:13px">
                 <tbody>
@@ -79,18 +79,18 @@ foreach ( $projects as $p ) {
         <div class="pseo-card">
             <h2 class="pseo-card__title">
                 <span class="dashicons dashicons-admin-tools"></span>
-                <?php esc_html_e( 'Maintenance', 'pseo-pro-knr' ); ?>
+                <?php esc_html_e( 'Maintenance', 'pseo' ); ?>
             </h2>
             <p>
                 <a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?page=pseo-settings&pseo_rebuild=1' ), 'pseo_rebuild' ) ); ?>"
                    class="button"
                    onclick="return confirm('Rebuild PSEO database tables? Safe to run anytime.')">
-                    🔧 <?php esc_html_e( 'Rebuild DB Tables', 'pseo-pro-knr' ); ?>
+                    🔧 <?php esc_html_e( 'Rebuild DB Tables', 'pseo' ); ?>
                 </a>
             </p>
             <p>
                 <a href="<?php echo esc_url( admin_url( 'options-permalink.php' ) ); ?>" class="button">
-                    🔗 <?php esc_html_e( 'Flush Permalinks', 'pseo-pro-knr' ); ?>
+                    🔗 <?php esc_html_e( 'Flush Permalinks', 'pseo' ); ?>
                 </a>
             </p>
             <p class="description">Flush permalinks after first activation so the sitemap URL works.</p>

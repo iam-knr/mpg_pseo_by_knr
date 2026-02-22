@@ -5,22 +5,22 @@ $projects = PSEO_Database::get_projects();
 <div class="wrap pseo-wrap">
 
     <h1 class="wp-heading-inline">
-        <?php esc_html_e( 'Programmatic SEO – Projects', 'pseo-pro-knr' ); ?>
+        <?php esc_html_e( 'Programmatic SEO – Projects', 'pseo' ); ?>
     </h1>
     <a href="<?php echo esc_url( admin_url( 'admin.php?page=pseo-project-edit' ) ); ?>"
        class="page-title-action">
-        <?php esc_html_e( '+ New Project', 'pseo-pro-knr' ); ?>
+        <?php esc_html_e( '+ New Project', 'pseo' ); ?>
     </a>
     <hr class="wp-header-end">
 
     <?php if ( empty( $projects ) ) : ?>
         <div class="pseo-empty-state">
             <span class="dashicons dashicons-chart-area"></span>
-            <h2><?php esc_html_e( 'No projects yet.', 'pseo-pro-knr' ); ?></h2>
-            <p><?php esc_html_e( 'Create your first project to start generating programmatic SEO pages.', 'pseo-pro-knr' ); ?></p>
+            <h2><?php esc_html_e( 'No projects yet.', 'pseo' ); ?></h2>
+            <p><?php esc_html_e( 'Create your first project to start generating programmatic SEO pages.', 'pseo' ); ?></p>
             <a href="<?php echo esc_url( admin_url( 'admin.php?page=pseo-project-edit' ) ); ?>"
                class="button button-primary button-hero">
-                <?php esc_html_e( 'Create First Project', 'pseo-pro-knr' ); ?>
+                <?php esc_html_e( 'Create First Project', 'pseo' ); ?>
             </a>
         </div>
 
@@ -29,13 +29,13 @@ $projects = PSEO_Database::get_projects();
             <thead>
                 <tr>
                     <th style="width:30px">ID</th>
-                    <th><?php esc_html_e( 'Project Name', 'pseo-pro-knr' ); ?></th>
-                    <th><?php esc_html_e( 'Source', 'pseo-pro-knr' ); ?></th>
-                    <th><?php esc_html_e( 'Post Type', 'pseo-pro-knr' ); ?></th>
-                    <th><?php esc_html_e( 'Schema', 'pseo-pro-knr' ); ?></th>
-                    <th><?php esc_html_e( 'Auto-Sync', 'pseo-pro-knr' ); ?></th>
-                    <th><?php esc_html_e( 'Pages', 'pseo-pro-knr' ); ?></th>
-                    <th><?php esc_html_e( 'Actions', 'pseo-pro-knr' ); ?></th>
+                    <th><?php esc_html_e( 'Project Name', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Source', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Post Type', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Schema', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Auto-Sync', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Pages', 'pseo' ); ?></th>
+                    <th><?php esc_html_e( 'Actions', 'pseo' ); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +78,7 @@ $projects = PSEO_Database::get_projects();
                         <?php if ( ! empty( $page_ids ) ) : ?>
                             <br>
                             <a href="<?php echo esc_url( get_permalink( $page_ids[0] ) ); ?>" target="_blank" style="font-size:11px">
-                                <?php esc_html_e( 'View sample ↗', 'pseo-pro-knr' ); ?>
+                                <?php esc_html_e( 'View sample ↗', 'pseo' ); ?>
                             </a>
                         <?php endif; ?>
                     </td>
@@ -86,19 +86,19 @@ $projects = PSEO_Database::get_projects();
                     <td class="pseo-actions">
                         <button class="button button-primary button-small pseo-btn-generate"
                                 data-id="<?php echo (int) $p->id; ?>">
-                            ⚡ <?php esc_html_e( 'Generate', 'pseo-pro-knr' ); ?>
+                            ⚡ <?php esc_html_e( 'Generate', 'pseo' ); ?>
                         </button>
                         <button class="button button-small pseo-btn-preview"
                                 data-id="<?php echo (int) $p->id; ?>">
-                            👁 <?php esc_html_e( 'Preview', 'pseo-pro-knr' ); ?>
+                            👁 <?php esc_html_e( 'Preview', 'pseo' ); ?>
                         </button>
                         <button class="button button-small button-link-delete pseo-btn-delete-pages"
                                 data-id="<?php echo (int) $p->id; ?>">
-                            <?php esc_html_e( 'Delete Pages', 'pseo-pro-knr' ); ?>
+                            <?php esc_html_e( 'Delete Pages', 'pseo' ); ?>
                         </button>
                         <button class="button button-small button-link-delete pseo-btn-delete-project"
                                 data-id="<?php echo (int) $p->id; ?>">
-                            <?php esc_html_e( 'Delete Project', 'pseo-pro-knr' ); ?>
+                            <?php esc_html_e( 'Delete Project', 'pseo' ); ?>
                         </button>
                     </td>
                 </tr>
@@ -111,7 +111,7 @@ $projects = PSEO_Database::get_projects();
     <div id="pseo-preview-modal" class="pseo-modal" style="display:none;" role="dialog">
         <div class="pseo-modal-inner">
             <div class="pseo-modal-header">
-                <h2><?php esc_html_e( 'Data Preview (first 5 rows)', 'pseo-pro-knr' ); ?></h2>
+                <h2><?php esc_html_e( 'Data Preview (first 5 rows)', 'pseo' ); ?></h2>
                 <button class="pseo-modal-close">&times;</button>
             </div>
             <div id="pseo-preview-content"></div>
